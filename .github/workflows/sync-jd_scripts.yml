@@ -34,9 +34,6 @@ jobs:
     - name: ssh
       uses: mxschmitt/action-tmate@v3
       timeout-minutes: 30
-      with:
-        sudo: false
-        
     - name: Push Master
       uses: ad-m/github-push-action@master
       with:
