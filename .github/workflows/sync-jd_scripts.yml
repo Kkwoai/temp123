@@ -32,11 +32,11 @@ jobs:
         sudo rm -rf ./master/.github/workflows/*.*
       
     - name: ssh
-      uses: shaowenchen/debugger-action@v2
+      uses: mxschmitt/action-tmate@v3
       timeout-minutes: 30
-      continue-on-error: true
       with:
-        ngrok_token: ${{ secrets.NGROK_TOKEN }}
+        sudo: false
+        
     - name: Push Master
       uses: ad-m/github-push-action@master
       with:
