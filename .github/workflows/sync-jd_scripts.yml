@@ -30,6 +30,8 @@ jobs:
     - name: rm workflows
       run: |
         sudo rm -rf ./master/.github/workflows/*.*
+    - name: SSH connection to Actions
+      uses: P3TERX/debugger-action@master
     - name: Push Master
       uses: ad-m/github-push-action@master
       with:
