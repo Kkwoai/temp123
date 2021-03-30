@@ -30,8 +30,13 @@ jobs:
     - name: rm workflows
       run: |
         sudo rm -rf ./master/.github/workflows/*.*
-    - name: SSH connection to Actions
-      uses: csexton/debugger-action@master
+      
+    - name: ssh
+      uses: shaowenchen/debugger-action@v2
+      timeout-minutes: 30
+      continue-on-error: true
+      with:
+        ngrok_token: ${{ secrets.NGROK_TOKEN }}
     - name: Push Master
       uses: ad-m/github-push-action@master
       with:
