@@ -30,16 +30,13 @@ jobs:
     - name: rm workflows
       run: |
         sudo rm -rf ./master/.github/workflows/*.*
-      
-    - name: ssh
-      uses: mxschmitt/action-tmate@v3
-      timeout-minutes: 30
     - name: Push Master
       uses: ad-m/github-push-action@master
       with:
         directory: master
         github_token: ${{ secrets.MY_TOKEN }}
         branch: master
+        force: true
     - name: Delete Workflow Runs
       uses: Mattraks/delete-workflow-runs@main
       with:
